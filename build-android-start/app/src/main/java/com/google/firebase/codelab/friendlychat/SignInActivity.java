@@ -15,12 +15,19 @@
  */
 package com.google.firebase.codelab.friendlychat;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -43,19 +50,38 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private SignInButton mSignInButton;
     private GoogleSignInClient mSignInClient;
 
+    private TextView btnRegister1;
+    private ImageView mImageView;
+    private EditText email1;
+    private EditText password1;
+    private Button btnLogin1;
+    private ProgressDialog progressDialog;
+
     // Firebase instance variables
     private FirebaseAuth mFirebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+
         // Assign fields
         mSignInButton = (SignInButton) findViewById(R.id.sign_in_button);
+        btnRegister1 = (TextView) findViewById(R.id.btnRegister);
+        mImageView = (ImageView) findViewById(R.id.imgUser);
+        mImageView.setImageResource(R.drawable.user);
+        email1 = (EditText)findViewById(R.id.txtEmail);
+        password1 = (EditText)findViewById(R.id.txtPassword);
+        btnLogin1 = (Button) findViewById(R.id.btnLogin1);
+        btnRegister1 = (TextView) findViewById(R.id.btnRegister);
+        progressDialog = new ProgressDialog(this);
 
         // Set click listeners
         mSignInButton.setOnClickListener(this);
+        btnRegister1.setOnClickListener(this);
+        btnLogin1.setOnClickListener(this);
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -66,6 +92,44 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         // Initialize FirebaseAuth
         mFirebaseAuth = FirebaseAuth.getInstance();
+
+    }
+
+    public void mLogin(){
+        //Guardar el email y contraseña
+        String email = email1.getText().toString().trim();
+        String password = password1.getText().toString().trim();
+
+        //Validar que los EditText no esten vacios
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Se debe ingresar un email", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Se debe ingresar una contraseña", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        progressDialog.setMessage("Creando nuevo usuario, por favor espere ..");
+        progressDialog.show();
+
+        //Iniciar sesion del usuario
+        mFirebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                //Verificacion del inicio de sesion
+                if(task.isSuccessful()){
+                    Toast.makeText(SignInActivity.this,"Bienvenido " + email1.getText(), Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(SignInActivity.this, MainActivity.class);
+                    startActivity(i);
+                }else{
+                    //Verifica si el usuario existe
+                    Toast.makeText(SignInActivity.this,"Ese usuario no existe o el email y la contraseña no son validos", Toast.LENGTH_LONG).show();
+                }
+                progressDialog.dismiss();
+            }
+        });
     }
 
     @Override
@@ -73,6 +137,14 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
+                break;
+            case R.id.btnRegister:
+                Intent i = new Intent(SignInActivity.this, RegisterActivity.class);
+                startActivity(i);
+                break;
+            case R.id.btnLogin1:
+                //Metodo para login
+                mLogin();
                 break;
         }
     }
@@ -109,9 +181,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
 
-                        // If sign in fails, display a message to the user. If sign in succeeds
-                        // the auth state listener will be notified and logic to handle the
-                        // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException());
                             Toast.makeText(SignInActivity.this, "Authentication failed.",
