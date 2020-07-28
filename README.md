@@ -131,7 +131,7 @@ En esta parte del codigo se indica las animaciones que tiene el splash screen, e
 
 * * *
 Esta parte del código permite la autentificación con Google ubicado en el `SignInActivity.java`.
->private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+>    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
 >        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 >        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
 >        mFirebaseAuth.signInWithCredential(credential)
@@ -275,7 +275,7 @@ Este fragmento de código llama los mensajes de `Firebase` y los va actualizando
 >            }
 >        };
 * * *
-### Manual de Usuario ###
+### Manual de Uso ###
 El archivo `Manual de Usuario.pdf` describe cada paso que debe seguir para la instalación, su forma de uso y la configuración.
 * * *
 ### Referencias ###
