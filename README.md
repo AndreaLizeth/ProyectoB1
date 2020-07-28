@@ -12,7 +12,7 @@ Estos son lo requisitos para ejecutar la aplicación:
 
 ### Funcionalidades ###
 La aplicación permite iniciar sesión tanto con una cuenta de la aplicación como con una cuenta de Google.
->![width 500][width 500](https://elvismpq.github.io/test/images/1.jpeg)
+>![width 500 heigth 500](https://elvismpq.github.io/test/images/1.jpeg)
 
 Se pude realizar un registro de usuarios con un formulario
 
