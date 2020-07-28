@@ -168,8 +168,8 @@ Este fragmento sacado del `MainActivity.java` permite subir imagenes al chat de 
 >    }
 * * *
 Este fragmento de código llama los mensajes de `Firebase` y los va actualizando continuamente.
->mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
->        SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {
+>      mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+>         SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {
 >            @Override
 >            public FriendlyMessage parseSnapshot(DataSnapshot dataSnapshot) {
 >                FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
@@ -180,12 +180,12 @@ Este fragmento de código llama los mensajes de `Firebase` y los va actualizando
 >            }
 >        };
 >
->        DatabaseReference messagesRef = mFirebaseDatabaseReference.child(MESSAGES_CHILD);
->        FirebaseRecyclerOptions<FriendlyMessage> options =
+>          DatabaseReference messagesRef = mFirebaseDatabaseReference.child(MESSAGES_CHILD);
+>         FirebaseRecyclerOptions<FriendlyMessage> options =
 >                new FirebaseRecyclerOptions.Builder<FriendlyMessage>()
 >                        .setQuery(messagesRef, parser)
 >                        .build();
->        mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
+>          mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
 >            @Override
 >            public MessageViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 >                LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
