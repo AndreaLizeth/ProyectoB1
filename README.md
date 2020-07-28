@@ -33,7 +33,9 @@ Permite adjunta imagenes de todo tipo para enviar al chat.
 </p> 
 
 
->![he](https://elvismpq.github.io/test/images/8.jpeg)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/8.jpeg" width="300"/> 
+</p> 
 
 Y finalmente la aplicación permite cerrar sesión.
 
