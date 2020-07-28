@@ -1,14 +1,18 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+En este README contiene un explicativo del la aplicación de realizada en Android Studio acerca de un chat.
 
-### What is this repository for? ###
+## Acerca del proyecto ##
+### Explicación###
+>El repositorio contiene el proyecto **build-android-start** y la aplicación de android **apk** 
+>
+>
+* Dispositivos: Android
+* Versión:5.0 o superiores
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Funcionalidades ###
 
-### How do I get set up? ###
+## How do I get set up? ##
 
 * Summary of set up
 * Configuration
@@ -17,7 +21,7 @@ This README would normally document whatever steps are necessary to get your app
 * How to run tests
 * Deployment instructions
 
-### Contribution guidelines ###
+## Contribution guidelines ##
 
 * Writing tests
 * Code review
