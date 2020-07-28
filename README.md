@@ -138,8 +138,9 @@ En cambio este otro fragmento permite la autentificacion con una cuenta de corre
 >                progressDialog.dismiss();
 >            }
 >        });
+* * *
 Este fragmento sacado del `MainActivity.java` permite subir imagenes al chat de la aplicación.
->         private void putImageInStorage(StorageReference storageReference, Uri uri, final String key) {
+>          private void putImageInStorage(StorageReference storageReference, Uri uri, final String key) {
 >             storageReference.putFile(uri).addOnCompleteListener(MainActivity.this,
 >                  new OnCompleteListener<UploadTask.TaskSnapshot>() {
 >                       @Override
