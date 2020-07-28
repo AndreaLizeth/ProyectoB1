@@ -33,24 +33,39 @@ Y finalmente la aplicación permite cerrar sesión.
 
 ## Dispositivos usados ##
  ### Sony Xperia XZ1 ###
->* **Sistema Operativo:** Android
+* **Sistema Operativo:** Android
 * **Versión:** 9.0
-![Alt text](https://elvismpq.github.io/test/images/10.jpeg)
+
+
+>![Alt text](https://elvismpq.github.io/test/images/10.jpeg)
+
+
 * * *
 ### Galaxy Note 10.1 2014 ###
 * **Sistema Operativo:** Android
 * **Versión:** 5.1.1
-![Alt text](https://elvismpq.github.io/test/images/9.jpeg)
+
+
+>![Alt text](https://elvismpq.github.io/test/images/9.jpeg)
+
+
+
 * * *
 ### Xiaomi Redmi Note 7 ###
 * **Sistema Operativo:** Android
 * **Versión:** 0.9
-![Alt text](https://elvismpq.github.io/test/images/2.jpeg)
+>![Alt text](https://elvismpq.github.io/test/images/2.jpeg)
 * * *
 ### Nexus 10 API 30 ###
 * **Sistema Operativo:** Android
 * **Versión:** 0.9
-![Alt text](https://elvismpq.github.io/test/images/11.png)
+
+
+
+>![Alt text](https://elvismpq.github.io/test/images/11.png)
+
+
+
 * * *
 ## Código ##
 En esta parte del codigo se indica las animaciones que tiene el splash screen, en esta ocasion los desplazamiento hascia arriba y abajo.
