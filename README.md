@@ -17,6 +17,7 @@ La aplicación permite iniciar sesión tanto con una cuenta de la aplicación co
 Se pude realizar un registro de usuarios con un formulario
 
 >![Alt text](https://elvismpq.github.io/test/images/5.jpeg)
+
 Al ingresar al chat permite enviar mandar mensajes en una sala global a todos los usuarios de la aplicacion
 
 >![Alt text](https://elvismpq.github.io/test/images/6.jpeg)
@@ -25,9 +26,10 @@ Permite adjunta imagenes de todo tipo para enviar al chat.
 
 >![Alt text](https://elvismpq.github.io/test/images/7.jpeg) 
 
+
 >![Alt text](https://elvismpq.github.io/test/images/8.jpeg)
 
-Yfinalmente la aplicación permite cerrar sesión.
+Y finalmente la aplicación permite cerrar sesión.
 
 ## Dispositivos usados ##
  ### Sony Xperia XZ1 ###
