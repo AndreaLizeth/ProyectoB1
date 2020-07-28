@@ -18,15 +18,19 @@ La aplicación permite iniciar sesión tanto con una cuenta de la aplicación co
 
 Se pude realizar un registro de usuarios con un formulario
 
->![Alt text](https://elvismpq.github.io/test/images/5.jpeg)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/5.jpeg" width="300"/> 
+</p> 
 
 Al ingresar al chat permite enviar mandar mensajes en una sala global a todos los usuarios de la aplicacion
-
->![Alt text](https://elvismpq.github.io/test/images/6.jpeg)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/6.jpeg" width="300"/> 
+</p> 
 
 Permite adjunta imagenes de todo tipo para enviar al chat.
-
->![Alt text](https://elvismpq.github.io/test/images/7.jpeg) 
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/7.jpeg" width="300"/> 
+</p> 
 
 
 >![he](https://elvismpq.github.io/test/images/8.jpeg)
@@ -38,8 +42,9 @@ Y finalmente la aplicación permite cerrar sesión.
 * **Sistema Operativo:** Android
 * **Versión:** 9.0
 
-
->![Alt text](https://elvismpq.github.io/test/images/10.jpeg)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/10.jpeg" width="300"/> 
+</p> 
 
 
 * * *
@@ -48,7 +53,9 @@ Y finalmente la aplicación permite cerrar sesión.
 * **Versión:** 5.1.1
 
 
->![Alt text](https://elvismpq.github.io/test/images/9.jpeg)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/9.jpeg" width="300"/> 
+</p> 
 
 
 
@@ -56,7 +63,9 @@ Y finalmente la aplicación permite cerrar sesión.
 ### Xiaomi Redmi Note 7 ###
 * **Sistema Operativo:** Android
 * **Versión:** 9.0
->![Alt text](https://elvismpq.github.io/test/images/2.jpeg)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/2.jpeg" width="300"/> 
+</p> 
 * * *
 ### Nexus 10 API 30 ###
 * **Sistema Operativo:** Android
@@ -64,7 +73,9 @@ Y finalmente la aplicación permite cerrar sesión.
 
 
 
->![Alt text](https://elvismpq.github.io/test/images/11.png)
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/11.png" width="300"/> 
+</p> 
 
 
 
@@ -74,8 +85,21 @@ Y finalmente la aplicación permite cerrar sesión.
 * **Versión:** 8.0
 
 
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/12.jpeg" width="300"/> 
+</p> 
 
->![Width 500 Heigth 500](https://elvismpq.github.io/test/images/12.jpeg)
+
+
+* * *
+### NEXUS 7 API 25 ###
+* **Sistema Operativo:** Android
+* **Versión:** 6.0
+
+
+<p align="center"> 
+ <img src="https://elvismpq.github.io/test/images/13.jpeg" width="300"/> 
+</p> 
 
 
 
@@ -251,7 +275,7 @@ Este fragmento de código llama los mensajes de `Firebase` y los va actualizando
 El archivo `Manual de Usuario.pdf` describe cada paso que debe seguir para la instalación, su forma de uso y la configuración.
 * * *
 ### Referencias ###
- 1. https://www.youtube.com/watch?v=BrgOzY5BHdg
- 2. https://codelabs.developers.google.com/codelabs/firebase-android/
- 3. https://www.youtube.com/watch?v=lEacPYUB9cc
+    1. https://www.youtube.com/watch?v=BrgOzY5BHdg
+    2. https://codelabs.developers.google.com/codelabs/firebase-android/
+    3. https://www.youtube.com/watch?v=lEacPYUB9cc
   
