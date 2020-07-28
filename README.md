@@ -139,11 +139,11 @@ En cambio este otro fragmento permite la autentificacion con una cuenta de corre
 >            }
 >        });
 Este fragmento sacado del `MainActivity.java` permite subir imagenes al chat de la aplicación.
->    private void putImageInStorage(StorageReference storageReference, Uri uri, final String key) {
->        storageReference.putFile(uri).addOnCompleteListener(MainActivity.this,
->                new OnCompleteListener<UploadTask.TaskSnapshot>() {
->                    @Override
->                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+>         private void putImageInStorage(StorageReference storageReference, Uri uri, final String key) {
+>             storageReference.putFile(uri).addOnCompleteListener(MainActivity.this,
+>                  new OnCompleteListener<UploadTask.TaskSnapshot>() {
+>                       @Override
+>                      public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
 >                        if (task.isSuccessful()) {
 >                            task.getResult().getMetadata().getReference().getDownloadUrl()
 >                                    .addOnCompleteListener(MainActivity.this,
