@@ -12,7 +12,7 @@ Estos son lo requisitos para ejecutar la aplicación:
 
 ### Funcionalidades ###
 La aplicación permite iniciar sesión tanto con una cuenta de la aplicación como con una cuenta de Google.
->![Alt text](https://elvismpq.github.io/test/images/1.jpeg)
+>![width 500 height 600](https://elvismpq.github.io/test/images/1.jpeg)
 
 Se pude realizar un registro de usuarios con un formulario
 
@@ -50,7 +50,7 @@ Y finalmente la aplicación permite cerrar sesión.
 ### Nexus 10 API 30 ###
 * **Sistema Operativo:** Android
 * **Versión:** 0.9
-![Alt text](https://elvismpq.github.io/test/images/11.jpeg)
+![Alt text](https://elvismpq.github.io/test/images/11.png)
 * * *
 ## Código ##
 En esta parte del codigo se indica las animaciones que tiene el splash screen, en esta ocasion los desplazamiento hascia arriba y abajo.
