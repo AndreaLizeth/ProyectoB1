@@ -68,6 +68,8 @@ Y finalmente la aplicación permite cerrar sesión.
 <p align="center"> 
  <img src="https://elvismpq.github.io/test/images/2.jpeg" width="300"/> 
 </p> 
+
+
 * * *
 ### Nexus 10 API 30 ###
 * **Sistema Operativo:** Android
