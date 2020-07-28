@@ -27,7 +27,7 @@ Permite adjunta imagenes de todo tipo para enviar al chat.
 >![Alt text](https://elvismpq.github.io/test/images/7.jpeg) 
 
 
->![Alt text](https://elvismpq.github.io/test/images/8.jpeg)
+>![he](https://elvismpq.github.io/test/images/8.jpeg)
 
 Y finalmente la aplicación permite cerrar sesión.
 
@@ -73,7 +73,7 @@ Y finalmente la aplicación permite cerrar sesión.
 
 
 
->![Alt text](https://elvismpq.github.io/test/images/12.jpeg)
+>![Width 500 Heigth 500](https://elvismpq.github.io/test/images/12.jpeg)
 
 
 
@@ -100,7 +100,155 @@ En esta parte del codigo se indica las animaciones que tiene el splash screen, e
 >            }
 
 * * *
-
+Esta parte del código permite la autentificación con Google ubicado en el `SignInActivity.java`.
+>private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+>        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+>        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+>        mFirebaseAuth.signInWithCredential(credential)
+>                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+>                    @Override
+>                    public void onComplete(@NonNull Task<AuthResult> task) {
+>                        Log.d(TAG, "signInWithCred>ential:onComplete:" + task.isSuccessful());
+>
+>                        if (!task.isSuccessful()) {
+>                            Log.w(TAG, "signInWithCredential", task.getException());
+>                            Toast.makeText(SignInActivity.this, "Authentication failed.",
+>                                    Toast.LENGTH_SHORT).show();
+>                        } else {
+>                            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+>                            finish();
+>                        }
+>                    }
+>                });
+>    }
+* * *
+En cambio este otro fragmento permite la autentificacion con una cuenta de correo previamente registrada.
+>  mFirebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+>            @Override
+>            public void onComplete(@NonNull Task<AuthResult> task) {
+>                //Verificacion del inicio de sesion
+>                if(task.isSuccessful()){
+>                    Toast.makeText(SignInActivity.this,"Bienvenido " + email1.getText(), Toast.LENGTH_LONG).show();
+>                    Intent i = new Intent(SignInActivity.this, MainActivity.class);
+>                    startActivity(i);
+>                }else{
+>                    //Verifica si el usuario existe
+>                    Toast.makeText(SignInActivity.this,"Ese usuario no existe o el email y la contraseña no son validos", Toast.LENGTH_LONG).show();
+>                }
+>                progressDialog.dismiss();
+>            }
+>        });
+Este fragmento sacado del `MainActivity.java` permite subir imagenes al chat de la aplicación.
+>    private void putImageInStorage(StorageReference storageReference, Uri uri, final String key) {
+>        storageReference.putFile(uri).addOnCompleteListener(MainActivity.this,
+>                new OnCompleteListener<UploadTask.TaskSnapshot>() {
+>                    @Override
+>                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+>                        if (task.isSuccessful()) {
+>                            task.getResult().getMetadata().getReference().getDownloadUrl()
+>                                    .addOnCompleteListener(MainActivity.this,
+>                                            new OnCompleteListener<Uri>() {
+>                                                @Override
+>                                                public void onComplete(@NonNull Task<Uri> task) {
+>                                                    if (task.isSuccessful()) {
+>                                                        FriendlyMessage friendlyMessage =
+>                                                                new FriendlyMessage(null, mUsername, mPhotoUrl,
+>                                                                        task.getResult().toString());
+>                                                        mFirebaseDatabaseReference.child(MESSAGES_CHILD).child(key)
+>                                                                .setValue(friendlyMessage);
+>                                                    }
+>                                                }
+>                                            });
+>                        } else {
+>                            Log.w(TAG, "Image upload task was not successful.",
+>                                    task.getException());
+>                        }
+>                    }
+>                });
+>    }
+* * *
+Este fragmento de código llama los mensajes de `Firebase` y los va actualizando continuamente.
+>mFirebaseDatabaseReference = FirebaseDatabase.getInstance().getReference();
+>        SnapshotParser<FriendlyMessage> parser = new SnapshotParser<FriendlyMessage>() {
+>            @Override
+>            public FriendlyMessage parseSnapshot(DataSnapshot dataSnapshot) {
+>                FriendlyMessage friendlyMessage = dataSnapshot.getValue(FriendlyMessage.class);
+>                if (friendlyMessage != null) {
+>                    friendlyMessage.setId(dataSnapshot.getKey());
+>                }
+>                return friendlyMessage;
+>            }
+>        };
+>
+>        DatabaseReference messagesRef = mFirebaseDatabaseReference.child(MESSAGES_CHILD);
+>        FirebaseRecyclerOptions<FriendlyMessage> options =
+>                new FirebaseRecyclerOptions.Builder<FriendlyMessage>()
+>                        .setQuery(messagesRef, parser)
+>                        .build();
+>        mFirebaseAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
+>            @Override
+>            public MessageViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+>                LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
+>                return new MessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false));
+>            }
+>
+>            @Override
+>            protected void onBindViewHolder(final MessageViewHolder viewHolder,
+>                                            int position,
+>                                            FriendlyMessage friendlyMessage) {
+>                mProgressBar.setVisibility(ProgressBar.INVISIBLE);
+>                if (friendlyMessage.getText() != null) {
+>                    viewHolder.messageTextView.setText(friendlyMessage.getText());
+>                    viewHolder.messageTextView.setVisibility(TextView.VISIBLE);
+>                    viewHolder.messageImageView.setVisibility(ImageView.GONE);
+>                } else if (friendlyMessage.getImageUrl() != null) {
+>                    String imageUrl = friendlyMessage.getImageUrl();
+>                    if (imageUrl.startsWith("gs://")) {
+>                        StorageReference storageReference = FirebaseStorage.getInstance()
+>                                .getReferenceFromUrl(imageUrl);
+>                        storageReference.getDownloadUrl().addOnCompleteListener(
+>                                new OnCompleteListener<Uri>() {
+>                                    @Override
+>                                    public void onComplete(@NonNull Task<Uri> task) {
+>                                        if (task.isSuccessful()) {
+>                                            String downloadUrl = task.getResult().toString();
+>                                            Glide.with(viewHolder.messageImageView.getContext())
+>                                                    .load(downloadUrl)
+>                                                    .into(viewHolder.messageImageView);
+>                                        } else {
+>                                            Log.w(TAG, "Getting download url was not successful.",
+>                                                    task.getException());
+>                                        }
+>                                    }
+>                                });
+>                    } else {
+>                        Glide.with(viewHolder.messageImageView.getContext())
+>                                .load(friendlyMessage.getImageUrl())
+>                                .into(viewHolder.messageImageView);
+>                    }
+>                    viewHolder.messageImageView.setVisibility(ImageView.VISIBLE);
+>                    viewHolder.messageTextView.setVisibility(TextView.GONE);
+>                }
+>
+>
+>                viewHolder.messengerTextView.setText(friendlyMessage.getName());
+>                if (friendlyMessage.getPhotoUrl() == null) {
+>                    viewHolder.messengerImageView.setImageDrawable(ContextCompat.getDrawable(MainActivity.this,
+>                            R.drawable.ic_account_circle_black_36dp));
+>                } else {
+>                    Glide.with(MainActivity.this)
+>                            .load(friendlyMessage.getPhotoUrl())
+>                            .into(viewHolder.messengerImageView);
+>                }
+>
+>            }
+>        };
+* * *
 ### Manual de Usuario ###
 El archivo `Manual de Usuario.pdf` describe cada paso que debe seguir para la instalación, su forma de uso y la configuración.
-
+* * *
+### Referencias ###
+ 1. https://www.youtube.com/watch?v=BrgOzY5BHdg
+ 2. https://codelabs.developers.google.com/codelabs/firebase-android/
+ 3. https://www.youtube.com/watch?v=lEacPYUB9cc
+  
