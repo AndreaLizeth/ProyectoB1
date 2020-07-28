@@ -118,7 +118,7 @@ En esta parte del codigo se indica las animaciones que tiene el splash screen, e
 >        TextView tvTopicos= findViewById(R.id.tvTopicos);
 >        ImageView imageView= findViewById(R.id.imageView);
 >
->       tvBienvenido.setAnimation(animacion1);
+>        tvBienvenido.setAnimation(animacion1);
 >        tvTopicos.setAnimation(animacion1);
 >        imageView.setAnimation(animacion2);
 >        new Handler().postDelayed(new Runnable() {
@@ -132,9 +132,9 @@ En esta parte del codigo se indica las animaciones que tiene el splash screen, e
 * * *
 Esta parte del código permite la autentificación con Google ubicado en el `SignInActivity.java`.
 >        private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
->        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
->        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
->        mFirebaseAuth.signInWithCredential(credential)
+>         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
+>         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+>         mFirebaseAuth.signInWithCredential(credential)
 >                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 >                    @Override
 >                    public void onComplete(@NonNull Task<AuthResult> task) {
