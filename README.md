@@ -131,7 +131,7 @@ En esta parte del codigo se indica las animaciones que tiene el splash screen, e
 
 * * *
 Esta parte del código permite la autentificación con Google ubicado en el `SignInActivity.java`.
->    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+>        private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
 >        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
 >        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
 >        mFirebaseAuth.signInWithCredential(credential)
@@ -153,7 +153,7 @@ Esta parte del código permite la autentificación con Google ubicado en el `Sig
 >    }
 * * *
 En cambio este otro fragmento permite la autentificacion con una cuenta de correo previamente registrada.
->  mFirebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+>        mFirebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 >            @Override
 >            public void onComplete(@NonNull Task<AuthResult> task) {
 >                //Verificacion del inicio de sesion
