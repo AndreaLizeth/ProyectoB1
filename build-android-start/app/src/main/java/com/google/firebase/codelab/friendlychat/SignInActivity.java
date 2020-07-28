@@ -111,7 +111,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
             return;
         }
 
-        progressDialog.setMessage("Creando nuevo usuario, por favor espere ..");
+        progressDialog.setMessage("Iniciando Sesión, por favor espere ..");
         progressDialog.show();
 
         //Iniciar sesion del usuario
