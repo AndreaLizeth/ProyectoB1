@@ -276,7 +276,7 @@ Este fragmento de código llama los mensajes de `Firebase` y los va actualizando
 >        };
 * * *
 ### Manual de Uso ###
-El archivo `Manual de Usuario.pdf` describe cada paso que debe seguir para la instalación, su forma de uso y la configuración.
+El archivo `Manual de Uso.pdf` describe cada paso que debe seguir para la instalación, su forma de uso y la configuración.
 * * *
 ### Referencias ###
     1. https://www.youtube.com/watch?v=BrgOzY5BHdg
