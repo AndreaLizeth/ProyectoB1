@@ -53,16 +53,27 @@ Y finalmente la aplicación permite cerrar sesión.
 * * *
 ### Xiaomi Redmi Note 7 ###
 * **Sistema Operativo:** Android
-* **Versión:** 0.9
+* **Versión:** 9.0
 >![Alt text](https://elvismpq.github.io/test/images/2.jpeg)
 * * *
 ### Nexus 10 API 30 ###
 * **Sistema Operativo:** Android
-* **Versión:** 0.9
+* **Versión:** 11.0 
 
 
 
 >![Alt text](https://elvismpq.github.io/test/images/11.png)
+
+
+
+* * *
+### Samsung A5 2017 ###
+* **Sistema Operativo:** Android
+* **Versión:** 8.0
+
+
+
+>![Alt text](https://elvismpq.github.io/test/images/12.jpeg)
 
 
 
@@ -87,8 +98,7 @@ En esta parte del codigo se indica las animaciones que tiene el splash screen, e
 >                startActivity(intent);
 >               finish();
 >            }
-El fragmento de código a continuación se encuentra en el **MainActivity.java** y permite leer los mensajes que cada usuario envia  en el chat, obteniendo la identificación
-del usuario y mostrando en el chat.
+
 * * *
 
 ### Manual de Usuario ###
